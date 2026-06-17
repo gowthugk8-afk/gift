@@ -25,47 +25,26 @@ flex-direction:column;
 position:relative;
 }
 
-/* Birthday Text Animation */
+/* 🎂 Birthday Text */
 #birthdayText{
 position:absolute;
 font-weight:bold;
 color:white;
 text-align:center;
-text-shadow:
-0 0 20px #fff,
-0 0 40px #ff69b4,
-0 0 60px #ff1493;
+text-shadow:0 0 20px #fff, 0 0 40px #ff69b4;
 font-size:40px;
-animation:introZoom 4s forwards;
+animation:introZoom 5s forwards;
 z-index:100;
 }
 
-@keyframes introZoom{
-
-0%{
-transform:scale(0.1);
-opacity:0;
+@keyframes introZoom {
+0% { transform: scale(0.6); opacity: 0; }
+30% { transform: scale(1.1); opacity: 1; }
+70% { transform: scale(1); }
+100% { transform: scale(1); top: 25px; font-size: 45px; }
 }
 
-40%{
-transform:scale(5);
-opacity:1;
-}
-
-70%{
-transform:scale(3);
-}
-
-100%{
-top:25px;
-font-size:55px;
-transform:scale(1);
-}
-
-}
-
-/* Floating Hearts */
-
+/* ❤️ Floating Hearts */
 .heart{
 position:absolute;
 font-size:30px;
@@ -73,45 +52,25 @@ animation:floatUp linear infinite;
 }
 
 @keyframes floatUp{
-
-0%{
-transform:translateY(100vh);
-opacity:0;
+0%{transform:translateY(100vh);opacity:0;}
+20%{opacity:1;}
+100%{transform:translateY(-120vh);opacity:0;}
 }
 
-20%{
-opacity:1;
-}
-
-100%{
-transform:translateY(-120vh);
-opacity:0;
-}
-
-}
-
-/* Falling Roses */
-
-.rose{
+/* 🎁 Floating Gifts */
+.gift{
 position:absolute;
-font-size:28px;
-animation:roseFall linear infinite;
+font-size:30px;
+animation:giftFloat linear infinite;
 }
 
-@keyframes roseFall{
-
-0%{
-transform:translateY(-100px) rotate(0deg);
+@keyframes giftFloat{
+0%{transform:translateY(100vh) rotate(0deg);opacity:0;}
+20%{opacity:1;}
+100%{transform:translateY(-120vh) rotate(360deg);opacity:0;}
 }
 
-100%{
-transform:translateY(120vh) rotate(360deg);
-}
-
-}
-
-/* Sparkles */
-
+/* ✨ Sparkles */
 .sparkle{
 position:absolute;
 font-size:25px;
@@ -119,19 +78,11 @@ animation:twinkle 2s infinite;
 }
 
 @keyframes twinkle{
-
-0%,100%{
-opacity:0.3;
+0%,100%{opacity:0.3;}
+50%{opacity:1;}
 }
 
-50%{
-opacity:1;
-}
-
-}
-
-/* Message */
-
+/* 💌 Message */
 .message{
 margin-top:120px;
 padding:20px;
@@ -142,8 +93,7 @@ max-width:90%;
 text-shadow:0 0 10px black;
 }
 
-/* Next Button */
-
+/* ➜ Next Button */
 .next-btn{
 position:absolute;
 bottom:40px;
@@ -156,24 +106,19 @@ background:white;
 color:#ff1493;
 cursor:pointer;
 box-shadow:0 0 20px rgba(255,255,255,0.8);
-animation:showButton 6s forwards;
 opacity:0;
+animation:showButton 6s forwards;
+}
+
+.next-btn:hover{
+transform:scale(1.1);
+transition:0.3s;
 }
 
 @keyframes showButton{
-
-0%{
-opacity:0;
-}
-
-80%{
-opacity:0;
-}
-
-100%{
-opacity:1;
-}
-
+0%{opacity:0;}
+80%{opacity:0;}
+100%{opacity:1;}
 }
 
 </style>
@@ -181,55 +126,68 @@ opacity:1;
 
 <body>
 
-<!-- Upload your song as song.mp3 -->
-
-<audio autoplay loop>
-<source src="song.mp3" type="audio/mpeg">
+<!-- 🎵 MUSIC -->
+<audio id="bgmusic" loop>
+  <source src="song.mp3" type="audio/mpeg">
 </audio>
 
+<!-- 🎂 TEXT -->
 <div id="birthdayText">
-🎂 Happy Birthday Vichuve ❤️
+🎂 Happy birthday Vichuve 🥹💋🫂
 </div>
 
-<!-- Hearts -->
-
+<!-- ❤️ Hearts -->
 <div class="heart" style="left:5%;animation-duration:7s;">❤️</div>
-<div class="heart" style="left:15%;animation-duration:9s;">💕</div>
-<div class="heart" style="left:25%;animation-duration:8s;">💖</div>
+<div class="heart" style="left:15%;animation-duration:9s;">💖</div>
+<div class="heart" style="left:25%;animation-duration:8s;">💕</div>
 <div class="heart" style="left:35%;animation-duration:10s;">❤️</div>
-<div class="heart" style="left:45%;animation-duration:6s;">💕</div>
-<div class="heart" style="left:55%;animation-duration:8s;">💖</div>
+<div class="heart" style="left:45%;animation-duration:6s;">💖</div>
+<div class="heart" style="left:55%;animation-duration:8s;">💕</div>
 <div class="heart" style="left:65%;animation-duration:9s;">❤️</div>
-<div class="heart" style="left:75%;animation-duration:7s;">💕</div>
-<div class="heart" style="left:85%;animation-duration:10s;">💖</div>
+<div class="heart" style="left:75%;animation-duration:7s;">💖</div>
+<div class="heart" style="left:85%;animation-duration:10s;">💕</div>
 
-<!-- Roses -->
+<!-- 🎁 Gifts -->
+<div class="gift" style="left:10%;animation-duration:9s;">🎁</div>
+<div class="gift" style="left:20%;animation-duration:7s;">🎀</div>
+<div class="gift" style="left:30%;animation-duration:10s;">🎁</div>
+<div class="gift" style="left:40%;animation-duration:8s;">🎉</div>
+<div class="gift" style="left:50%;animation-duration:11s;">🎁</div>
+<div class="gift" style="left:60%;animation-duration:7s;">🎀</div>
+<div class="gift" style="left:70%;animation-duration:9s;">🎁</div>
+<div class="gift" style="left:80%;animation-duration:8s;">🎉</div>
 
-<div class="rose" style="left:5%;animation-duration:11s;">🌹</div>
-<div class="rose" style="left:20%;animation-duration:8s;">🌹</div>
-<div class="rose" style="left:35%;animation-duration:10s;">🌹</div>
-<div class="rose" style="left:50%;animation-duration:9s;">🌹</div>
-<div class="rose" style="left:65%;animation-duration:12s;">🌹</div>
-<div class="rose" style="left:80%;animation-duration:10s;">🌹</div>
-
-<!-- Sparkles -->
-
+<!-- ✨ Sparkles -->
 <div class="sparkle" style="top:10%;left:15%;">✨</div>
 <div class="sparkle" style="top:20%;left:80%;">✨</div>
 <div class="sparkle" style="top:35%;left:30%;">✨</div>
 <div class="sparkle" style="top:60%;left:70%;">✨</div>
 <div class="sparkle" style="top:80%;left:20%;">✨</div>
 
+<!-- 💌 MESSAGE -->
 <div class="message">
 💖 You are the most beautiful gift in my life. 💖
 <br><br>
 May your day be filled with happiness, smiles, love and endless joy. ❤️
 </div>
 
-<button class="next-btn"
-onclick="window.location.href='page3.html'">
+<!-- ➜ NEXT -->
+<button class="next-btn" onclick="window.location.href='page3.html'">
 Next Surprise ➜
 </button>
+
+<!-- 🎵 MUSIC SCRIPT -->
+<script>
+window.addEventListener("load", () => {
+  const music = document.getElementById("bgmusic");
+
+  music.play().catch(() => {
+    document.addEventListener("click", () => music.play(), { once: true });
+  });
+
+  localStorage.setItem("musicPlaying", "true");
+});
+</script>
 
 </body>
 </html>
