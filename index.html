@@ -1,11 +1,215 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Happy Birthday ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff69b4,#ff1493,#ffb6c1);
+position:relative;
+}
+
+/* Hearts */
+.heart{
+position:absolute;
+font-size:30px;
+animation:float 8s linear infinite;
+opacity:0.8;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+}
+100%{
+transform:translateY(-120vh);
+}
+}
+
+/* Teddy Bears */
+.teddy{
+position:absolute;
+font-size:80px;
+}
+
+.t1{top:5%;left:5%;}
+.t2{top:5%;right:5%;}
+.t3{bottom:5%;left:5%;}
+.t4{bottom:5%;right:5%;}
+
+/* Gift Box */
+.gift-container{
+text-align:center;
+cursor:pointer;
+}
+
+.gift{
+width:240px;
+height:240px;
+background:#ff1744;
+position:relative;
+border-radius:20px;
+margin:auto;
+box-shadow:0 0 50px rgba(255,255,255,0.8);
+animation:pulse 2s infinite;
+overflow:visible;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.08);
+}
+}
+
+.ribbon-v{
+position:absolute;
+width:40px;
+height:100%;
+background:gold;
+left:100px;
+}
+
+.ribbon-h{
+position:absolute;
+width:100%;
+height:40px;
+background:gold;
+top:100px;
+}
+
+.bow{
+position:absolute;
+top:-45px;
+left:65px;
+font-size:100px;
+}
+
+.tap-text{
+margin-top:30px;
+font-size:28px;
+font-weight:bold;
+color:white;
+text-shadow:2px 2px 10px black;
+}
+
+.subtitle{
+margin-top:10px;
+color:white;
+font-size:18px;
+}
+
+@keyframes glow{
+0%{
+filter:drop-shadow(0 0 5px gold);
+}
+50%{
+filter:drop-shadow(0 0 50px gold);
+}
+100%{
+filter:drop-shadow(0 0 5px gold);
+}
+}
+
+</style>
 </head>
-<body style="background:pink;text-align:center;font-family:Arial;padding-top:50px;">
-<h1>Happy Birthday My Love ❤️</h1>
-<p>Wishing you a day filled with happiness and love.</p>
-<p>You mean everything to me. 💕</p>
+
+<body>
+
+<div class="heart" style="left:5%;animation-duration:7s;">❤️</div>
+<div class="heart" style="left:15%;animation-duration:9s;">💕</div>
+<div class="heart" style="left:25%;animation-duration:8s;">💖</div>
+<div class="heart" style="left:35%;animation-duration:10s;">❤️</div>
+<div class="heart" style="left:45%;animation-duration:6s;">💕</div>
+<div class="heart" style="left:55%;animation-duration:9s;">💖</div>
+<div class="heart" style="left:65%;animation-duration:7s;">❤️</div>
+<div class="heart" style="left:75%;animation-duration:8s;">💕</div>
+<div class="heart" style="left:85%;animation-duration:10s;">💖</div>
+
+<div class="teddy t1">🧸</div>
+<div class="teddy t2">🧸</div>
+<div class="teddy t3">🧸</div>
+<div class="teddy t4">🧸</div>
+
+<div class="gift-container" onclick="openGift()">
+
+<div class="gift" id="giftBox">
+<div class="ribbon-v"></div>
+<div class="ribbon-h"></div>
+<div class="bow">🎀</div>
+</div>
+
+<div class="tap-text">Tap The Gift ❤️</div>
+
+<div class="subtitle">
+A special surprise is waiting for you...
+</div>
+
+</div>
+
+<script>
+
+function openGift(){
+
+let gift=document.getElementById("giftBox");
+
+gift.style.transition="1s";
+gift.style.transform="scale(1.4)";
+
+setTimeout(function(){
+
+gift.innerHTML=`
+<div style="
+position:absolute;
+top:-80px;
+left:0;
+width:240px;
+height:80px;
+background:#ff1744;
+border-radius:20px;
+transform:rotate(-25deg);
+"></div>
+
+<div class="ribbon-v"></div>
+<div class="ribbon-h"></div>
+
+<div style="
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:140px;
+animation:glow 1s infinite;
+">
+✨
+</div>
+`;
+
+},1000);
+
+setTimeout(function(){
+
+window.location.href="page2.html";
+
+},3000);
+
+}
+
+</script>
+
 </body>
 </html>
