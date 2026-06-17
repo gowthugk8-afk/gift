@@ -27,7 +27,7 @@ background: radial-gradient(circle at top,#ff4d88,#ff80bf,#ffd6e8);
 position:relative;
 }
 
-/* ✨ BACKGROUND LIGHTS */
+/* ✨ FLOATING LIGHTS */
 .light{
 position:absolute;
 width:8px;
@@ -62,10 +62,10 @@ from{opacity:0; transform:translateY(-20px);}
 to{opacity:1; transform:translateY(0);}
 }
 
-/* 💌 QUOTE (FIXED POSITION - MOVED DOWN) */
+/* 💌 QUOTE */
 .quote-box{
 position:absolute;
-top:180px;   /* ✅ moved further down */
+top:180px;
 background:rgba(255,255,255,0.12);
 backdrop-filter: blur(12px);
 border:1px solid rgba(255,255,255,0.25);
@@ -76,18 +76,14 @@ color:white;
 font-size:24px;
 text-shadow:0 0 10px black;
 max-width:85%;
-box-shadow:0 0 25px rgba(255,255,255,0.2);
 animation:fadeIn 2.5s ease-in-out;
 }
 
-/* 📸 PHOTO REVEAL */
+/* 📸 PHOTO ANIMATION */
 .photo-container{
 position:absolute;
 bottom:-300px;
 animation:photoUp 3s ease-out forwards;
-display:flex;
-justify-content:center;
-align-items:center;
 }
 
 @keyframes photoUp{
@@ -165,19 +161,19 @@ transition:0.3s;
 🎂 Happy Birthday Vichuve 🥹💋🫂
 </div>
 
-<!-- 💌 QUOTE (UPDATED TEXT) -->
+<!-- 💌 QUOTE -->
 <div class="quote-box">
 Today is June 19, 2026 ✨<br>
 My little girl has grown one more year ❤️<br>
 Now you are 20 years old, my vichukutti 💋🫂
 </div>
 
-<!-- 📸 PHOTO -->
+<!-- 📸 IMAGE (IMPORTANT FIX) -->
 <div class="photo-container">
-  <img src="herphoto.png" alt="Birthday Girl">
+  <img src="herphoto.png" alt="Birthday Photo">
 </div>
 
-<!-- ✨ FLOATING LIGHTS -->
+<!-- ✨ LIGHTS -->
 <script>
 for(let i=0;i<25;i++){
   let light=document.createElement("div");
@@ -209,18 +205,18 @@ for(let i=0;i<25;i++){
 <div class="gift" style="left:70%;animation-duration:9s;">🎉</div>
 <div class="gift" style="left:80%;animation-duration:8s;">🎁</div>
 
-<!-- ➜ NEXT BUTTON -->
+<!-- ➜ BUTTON -->
 <button class="next-btn" onclick="window.location.href='page3.html'">
 Next Surprise ➜
 </button>
 
-<!-- 🎵 MUSIC SCRIPT -->
+<!-- 🎵 MUSIC AUTO PLAY -->
 <script>
 window.addEventListener("load", () => {
   const music = document.getElementById("bgmusic");
 
-  music.play().catch(()=> {
-    document.addEventListener("click", ()=>music.play(), {once:true});
+  music.play().catch(() => {
+    document.addEventListener("click", () => music.play(), { once: true });
   });
 });
 </script>
