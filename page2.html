@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Vichuve ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Arial',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+background:linear-gradient(135deg,#ff4d88,#ff80bf,#ffd6e8);
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+position:relative;
+}
+
+/* Birthday Text Animation */
+#birthdayText{
+position:absolute;
+font-weight:bold;
+color:white;
+text-align:center;
+text-shadow:
+0 0 20px #fff,
+0 0 40px #ff69b4,
+0 0 60px #ff1493;
+font-size:40px;
+animation:introZoom 4s forwards;
+z-index:100;
+}
+
+@keyframes introZoom{
+
+0%{
+transform:scale(0.1);
+opacity:0;
+}
+
+40%{
+transform:scale(5);
+opacity:1;
+}
+
+70%{
+transform:scale(3);
+}
+
+100%{
+top:25px;
+font-size:55px;
+transform:scale(1);
+}
+
+}
+
+/* Floating Hearts */
+
+.heart{
+position:absolute;
+font-size:30px;
+animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+
+}
+
+/* Falling Roses */
+
+.rose{
+position:absolute;
+font-size:28px;
+animation:roseFall linear infinite;
+}
+
+@keyframes roseFall{
+
+0%{
+transform:translateY(-100px) rotate(0deg);
+}
+
+100%{
+transform:translateY(120vh) rotate(360deg);
+}
+
+}
+
+/* Sparkles */
+
+.sparkle{
+position:absolute;
+font-size:25px;
+animation:twinkle 2s infinite;
+}
+
+@keyframes twinkle{
+
+0%,100%{
+opacity:0.3;
+}
+
+50%{
+opacity:1;
+}
+
+}
+
+/* Message */
+
+.message{
+margin-top:120px;
+padding:20px;
+text-align:center;
+font-size:24px;
+color:white;
+max-width:90%;
+text-shadow:0 0 10px black;
+}
+
+/* Next Button */
+
+.next-btn{
+position:absolute;
+bottom:40px;
+padding:15px 35px;
+font-size:22px;
+font-weight:bold;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff1493;
+cursor:pointer;
+box-shadow:0 0 20px rgba(255,255,255,0.8);
+animation:showButton 6s forwards;
+opacity:0;
+}
+
+@keyframes showButton{
+
+0%{
+opacity:0;
+}
+
+80%{
+opacity:0;
+}
+
+100%{
+opacity:1;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Upload your song as song.mp3 -->
+
+<audio autoplay loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<div id="birthdayText">
+🎂 Happy Birthday Vichuve ❤️
+</div>
+
+<!-- Hearts -->
+
+<div class="heart" style="left:5%;animation-duration:7s;">❤️</div>
+<div class="heart" style="left:15%;animation-duration:9s;">💕</div>
+<div class="heart" style="left:25%;animation-duration:8s;">💖</div>
+<div class="heart" style="left:35%;animation-duration:10s;">❤️</div>
+<div class="heart" style="left:45%;animation-duration:6s;">💕</div>
+<div class="heart" style="left:55%;animation-duration:8s;">💖</div>
+<div class="heart" style="left:65%;animation-duration:9s;">❤️</div>
+<div class="heart" style="left:75%;animation-duration:7s;">💕</div>
+<div class="heart" style="left:85%;animation-duration:10s;">💖</div>
+
+<!-- Roses -->
+
+<div class="rose" style="left:5%;animation-duration:11s;">🌹</div>
+<div class="rose" style="left:20%;animation-duration:8s;">🌹</div>
+<div class="rose" style="left:35%;animation-duration:10s;">🌹</div>
+<div class="rose" style="left:50%;animation-duration:9s;">🌹</div>
+<div class="rose" style="left:65%;animation-duration:12s;">🌹</div>
+<div class="rose" style="left:80%;animation-duration:10s;">🌹</div>
+
+<!-- Sparkles -->
+
+<div class="sparkle" style="top:10%;left:15%;">✨</div>
+<div class="sparkle" style="top:20%;left:80%;">✨</div>
+<div class="sparkle" style="top:35%;left:30%;">✨</div>
+<div class="sparkle" style="top:60%;left:70%;">✨</div>
+<div class="sparkle" style="top:80%;left:20%;">✨</div>
+
+<div class="message">
+💖 You are the most beautiful gift in my life. 💖
+<br><br>
+May your day be filled with happiness, smiles, love and endless joy. ❤️
+</div>
+
+<button class="next-btn"
+onclick="window.location.href='page3.html'">
+Next Surprise ➜
+</button>
+
+</body>
+</html>
