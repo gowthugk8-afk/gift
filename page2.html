@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Vichuve ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -27,7 +27,7 @@ background: radial-gradient(circle at top,#ff4d88,#ff80bf,#ffd6e8);
 position:relative;
 }
 
-/* ✨ FLOATING LIGHTS */
+/* ✨ BACKGROUND LIGHTS */
 .light{
 position:absolute;
 width:8px;
@@ -79,7 +79,7 @@ max-width:85%;
 animation:fadeIn 2.5s ease-in-out;
 }
 
-/* 📸 PHOTO ANIMATION */
+/* 📸 PHOTO */
 .photo-container{
 position:absolute;
 bottom:-300px;
@@ -98,32 +98,6 @@ object-fit:cover;
 border-radius:20px;
 border:4px solid white;
 box-shadow:0 0 30px rgba(255,255,255,0.6), 0 0 60px #ff4da6;
-}
-
-/* ❤️ HEARTS */
-.heart{
-position:absolute;
-font-size:28px;
-animation:floatUp linear infinite;
-}
-
-@keyframes floatUp{
-0%{transform:translateY(100vh);opacity:0;}
-20%{opacity:1;}
-100%{transform:translateY(-120vh);opacity:0;}
-}
-
-/* 🎁 GIFTS */
-.gift{
-position:absolute;
-font-size:28px;
-animation:giftFloat linear infinite;
-}
-
-@keyframes giftFloat{
-0%{transform:translateY(100vh) rotate(0deg);opacity:0;}
-20%{opacity:1;}
-100%{transform:translateY(-120vh) rotate(360deg);opacity:0;}
 }
 
 /* ➜ BUTTON */
@@ -151,7 +125,7 @@ transition:0.3s;
 
 <body>
 
-<!-- 🎵 MUSIC -->
+<!-- 🎵 AUDIO -->
 <audio id="bgmusic" loop>
   <source src="song.mp3" type="audio/mpeg">
 </audio>
@@ -168,10 +142,15 @@ My little girl has grown one more year ❤️<br>
 Now you are 20 years old, my vichukutti 💋🫂
 </div>
 
-<!-- 📸 IMAGE (IMPORTANT FIX) -->
+<!-- 📸 PHOTO -->
 <div class="photo-container">
   <img src="herphoto.png" alt="Birthday Photo">
 </div>
+
+<!-- ➜ BUTTON -->
+<button class="next-btn" onclick="saveAndGo()">
+Next Surprise ➜
+</button>
 
 <!-- ✨ LIGHTS -->
 <script>
@@ -184,41 +163,29 @@ for(let i=0;i<25;i++){
 }
 </script>
 
-<!-- ❤️ HEARTS -->
-<div class="heart" style="left:5%;animation-duration:7s;">💖</div>
-<div class="heart" style="left:15%;animation-duration:9s;">❤️</div>
-<div class="heart" style="left:25%;animation-duration:8s;">💗</div>
-<div class="heart" style="left:35%;animation-duration:10s;">💖</div>
-<div class="heart" style="left:45%;animation-duration:6s;">❤️</div>
-<div class="heart" style="left:55%;animation-duration:8s;">💗</div>
-<div class="heart" style="left:65%;animation-duration:9s;">💖</div>
-<div class="heart" style="left:75%;animation-duration:7s;">❤️</div>
-<div class="heart" style="left:85%;animation-duration:10s;">💗</div>
-
-<!-- 🎁 GIFTS -->
-<div class="gift" style="left:10%;animation-duration:9s;">🎁</div>
-<div class="gift" style="left:20%;animation-duration:7s;">🎀</div>
-<div class="gift" style="left:30%;animation-duration:10s;">🎉</div>
-<div class="gift" style="left:40%;animation-duration:8s;">🎁</div>
-<div class="gift" style="left:50%;animation-duration:11s;">🎀</div>
-<div class="gift" style="left:60%;animation-duration:7s;">🎁</div>
-<div class="gift" style="left:70%;animation-duration:9s;">🎉</div>
-<div class="gift" style="left:80%;animation-duration:8s;">🎁</div>
-
-<!-- ➜ BUTTON -->
-<button class="next-btn" onclick="window.location.href='page3.html'">
-Next Surprise ➜
-</button>
-
-<!-- 🎵 MUSIC AUTO PLAY -->
+<!-- 🎵 SAVE MUSIC + GO NEXT -->
 <script>
+
+function saveAndGo(){
+  const music = document.getElementById("bgmusic");
+  localStorage.setItem("musicTime", music.currentTime);
+  window.location.href = "page3.html";
+}
+
+/* autoplay music */
 window.addEventListener("load", () => {
   const music = document.getElementById("bgmusic");
+
+  const savedTime = localStorage.getItem("musicTime");
+  if(savedTime){
+    music.currentTime = savedTime;
+  }
 
   music.play().catch(() => {
     document.addEventListener("click", () => music.play(), { once: true });
   });
 });
+
 </script>
 
 </body>
